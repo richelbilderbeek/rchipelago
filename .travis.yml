@@ -7,7 +7,7 @@ r_github_packages:
   - jimhester/lintr
 
 script:
-  - sudo apt install -qq gdal-bin gdal-data
+  - sudo apt install -qq libgdal-dev
 
 script:
   - travis_wait 30 R CMD build .
