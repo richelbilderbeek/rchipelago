@@ -1,14 +1,26 @@
 Package: rchipelago
-Title: What the Package Does (One Line, Title Case)
+Title: Create Global Maps In Time
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
+Authors@R:
+    c(
+    person(given = "Sietze",
+           family = "Norder",
            role = c("aut", "cre"),
            email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           comment = c(ORCID = "YOUR-ORCID-ID")
+           ),
+    person(given = "Richel",
+           family = "Bilderbeek",
+           role = c("aut", "cre"),
+           email = "richel@richelbilderbeek.nl",
+           comment = c(ORCID = "YOUR-ORCID-ID")
+           )
+    )
+Description: Islands change through time.
+    Sometimes, islands become connected.
+    With this package, you can get global maps
+    of the state of islands through long periods of time.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Suggests: 
