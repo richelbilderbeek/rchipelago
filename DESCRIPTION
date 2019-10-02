@@ -17,7 +17,7 @@ Suggests:
     ncdf4,
     raster,
     rgdal,
-    rmarkdown
+    rmarkdown,
     sp,
     xlsx
 RoxygenNote: 6.1.1
