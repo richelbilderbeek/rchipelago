@@ -54,7 +54,11 @@ Arclist <- c("Aldabra","Azores","Balearic","California Channel","Canaries","Cape
 inputfolder<-file.path(getwd(),"input") 
 intermedfolder<-file.path(getwd(),"intermediate")
 outputfolder<-file.path(getwd(),"output",slc)
+```
 
+Here, the vignette cannot continue.
+
+```
 # Load sea level curve
 time_level<-readRDS(paste(inputfolder,"/GLOBAL/","time_level_",slc,".rds",sep=""))
 
