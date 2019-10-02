@@ -28,8 +28,6 @@
 IB.areachange.pol <- function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
                              IB.intermedfolder, IB.outputfolder, time.ka, time.sl){
 
-  require(rgdal)
-  require(plyr)
   inputarcfolder <- paste(IB.inputfolder, "/", IB.Arcname, "/", sep="")
   outputarcfolder <- paste(IB.outputfolder, "/", IB.Arcname, "/", sep="")
   intermedarcfolder <- paste(IB.intermedfolder, "/", IB.Arcname, "/", sep="")
@@ -165,9 +163,6 @@ IB.projpol <- function (IB.inputfolder, IB.outputfolder, IB.Arclist, IB.projcrs)
 #' @export
 IB.WMcrop.proj.r <- function(IB.Arcname, IB.projname, IB.proj, IB.WM, resfact, IB.inputfolder, IB.outputfolder, IB.plot=TRUE, IB.mask=FALSE){
 
-  require(raster)
-  require(rgdal)
-
   inputarcfolder<-paste(IB.inputfolder, "/", IB.Arcname, "/",sep="")
   outputarcfolder<-paste(IB.outputfolder, "/", IB.Arcname, "/",sep="")
   # Create outputarcfolder if it doesn't exist yet.
@@ -255,7 +250,6 @@ return(area.depth)
 polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
                         fillholes=FALSE, aggregate=FALSE,
                         quietish=TRUE) {
-  if (isTRUE(readpoly) || isTRUE(fillholes)) require(rgdal)
   if (is.null(pypath)) {
     cmd <- Sys.which('C:\\OSGeo4W64\\OSGeo4W.bat')
     pypath <- 'gdal_polygonize'
@@ -275,7 +269,6 @@ polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
                                   sep='.')[f.exists])), call.=FALSE)
   } else outshape <- tempfile()
   if (is(x, 'Raster')) {
-    require(raster)
     writeRaster(x, {f <- tempfile(fileext='.tif')})
     rastpath <- normalizePath(f)
   } else if (is.character(x)) {

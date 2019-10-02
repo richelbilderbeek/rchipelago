@@ -11,12 +11,14 @@ Description: Islands change through time.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    plyr,
+    raster,
+    rgdal
 Suggests: 
-    testthat,
+    testthat (>= 2.1.0),
     knitr,
     ncdf4,
-    raster,
-    rgdal,
     rmarkdown,
     sp,
     xlsx
