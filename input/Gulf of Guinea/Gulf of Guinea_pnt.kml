@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Gulf of Guinea_pnt.kml</name>
+	<open>1</open>
+	<Schema name="ID" id="ID">
+		<SimpleField type="int" name="no"></SimpleField>
+	</Schema>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Sao Tome</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">6</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>6.602256292017234,0.238989042603563,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Principe</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">10</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>7.397049205041324,1.615393509395234,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Annobon</name>
+			<LookAt>
+				<longitude>5.634376283774418</longitude>
+				<latitude>-1.434255671365543</latitude>
+				<altitude>0</altitude>
+				<heading>0.00658631821785539</heading>
+				<tilt>27.9595656909266</tilt>
+				<range>4296.588306559068</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>5.634376283774419,-1.434255671365543,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Comoros_pnt.kml</name>
+	<open>1</open>
+	<Schema name="ID" id="ID">
+		<SimpleField type="int" name="no"></SimpleField>
+	</Schema>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Anjouan</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">15</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>44.4364361155092,-12.22216350304014,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Grande Comore</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">16</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>43.35420890913965,-11.66258060297013,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Moheli</name>
+			<LookAt>
+				<longitude>43.81045820355094</longitude>
+				<latitude>-12.29772078342229</latitude>
+				<altitude>0</altitude>
+				<heading>0.09592757490003688</heading>
+				<tilt>43.95486830317969</tilt>
+				<range>48826.71300619574</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>43.72996152624145,-12.32853645186796,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Mayotte</name>
+			<LookAt>
+				<longitude>45.15984224390117</longitude>
+				<latitude>-12.8217379920248</latitude>
+				<altitude>0</altitude>
+				<heading>75.68711443932585</heading>
+				<tilt>0</tilt>
+				<range>39909.01717953049</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>45.15051476609492,-12.87375894628653,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

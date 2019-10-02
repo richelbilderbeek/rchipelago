@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Dutch Caribbean_pnt.kml</name>
+	<open>1</open>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Aruba</name>
+			<LookAt>
+				<longitude>-69.89850027188314</longitude>
+				<latitude>12.52812568049403</latitude>
+				<altitude>0</altitude>
+				<heading>0.01712165154556106</heading>
+				<tilt>0.2412757057475019</tilt>
+				<range>117688.3333755318</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-69.96528247015934,12.51060350375864,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Bonaire</name>
+			<LookAt>
+				<longitude>-68.26263052155952</longitude>
+				<latitude>12.20193974880113</latitude>
+				<altitude>0</altitude>
+				<heading>3.523273194748546e-006</heading>
+				<tilt>0</tilt>
+				<range>74467.93303557772</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-68.26263052155952,12.20193974880113,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Curacao</name>
+			<LookAt>
+				<longitude>-68.9889107708966</longitude>
+				<latitude>12.23509542925933</latitude>
+				<altitude>0</altitude>
+				<heading>-0.001000539061778893</heading>
+				<tilt>0</tilt>
+				<range>78433.37661300531</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-69.10210240307542,12.30587690259255,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

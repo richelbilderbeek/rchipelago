@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Phoenix_pnt.kml</name>
+	<open>1</open>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Enderbury</name>
+			<LookAt>
+				<longitude>-171.0806622561586</longitude>
+				<latitude>-3.135681842872796</latitude>
+				<altitude>0</altitude>
+				<heading>-0.03990626140593743</heading>
+				<tilt>0.6607333189392138</tilt>
+				<range>11233.99714647996</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-171.0864246575509,-3.126591977077569,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Nikumaroro</name>
+			<LookAt>
+				<longitude>-174.5336394943289</longitude>
+				<latitude>-4.664765401900805</latitude>
+				<altitude>0</altitude>
+				<heading>0.121682513850918</heading>
+				<tilt>15.46888441986951</tilt>
+				<range>7003.014652332896</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-174.5377915403384,-4.666061801218106,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Orona</name>
+			<LookAt>
+				<longitude>-172.2042245477775</longitude>
+				<latitude>-4.510241978544187</latitude>
+				<altitude>0</altitude>
+				<heading>-0.00023741622618042</heading>
+				<tilt>0</tilt>
+				<range>16274.98550845904</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-172.1397436039188,-4.515078836743609,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Manra</name>
+			<LookAt>
+				<longitude>-171.2445750771389</longitude>
+				<latitude>-4.453446704670223</latitude>
+				<altitude>0</altitude>
+				<heading>-0.07575939068052671</heading>
+				<tilt>15.86601394868871</tilt>
+				<range>7839.630928054397</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-171.2343711151816,-4.461302720929825,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

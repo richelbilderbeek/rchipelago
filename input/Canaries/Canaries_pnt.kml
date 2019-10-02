@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Canaries_pnt.kml</name>
+	<open>1</open>
+	<Schema name="ID" id="ID">
+		<SimpleField type="int" name="no"></SimpleField>
+	</Schema>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Hierro</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">1</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-18.00662362770408,27.74652626376296,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Gran Canaria</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">6</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-15.59319386180339,27.95482149225949,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>La Gomera</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">7</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-17.2326094879568,28.11741097281213,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Tenerife</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">9</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-16.55631009373366,28.29106239798533,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuerteventura</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">11</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-14.03648568400988,28.40610649758547,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>La Palma</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">13</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-17.858329545775,28.68987990861992,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Lanzarote</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">15</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-13.64182497666018,29.02447845310066,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

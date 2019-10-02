@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Hawaii_pnt.kml</name>
+	<open>1</open>
+	<Schema name="ID" id="ID">
+		<SimpleField type="int" name="no"></SimpleField>
+	</Schema>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Hawaii</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">1</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-155.5183749960195,19.59808365096147,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Kahoolawe</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">3</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-156.6093406160013,20.54761151616058,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Lanai</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">6</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-156.9270658764383,20.834994468927,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Maui</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">8</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-156.336777028797,20.79041467254207,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Molokai</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">12</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-157.0145176337108,21.13317268816558,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Oahu</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">24</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-157.9733929069756,21.45867442335834,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Niihau</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">26</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-160.151830556944,21.8966426213871,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Kauai</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">28</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-159.5242410614806,22.05836306912197,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>Azores_pnt.kml</name>
+	<open>1</open>
+	<Schema name="ID" id="ID">
+		<SimpleField type="int" name="no"></SimpleField>
+	</Schema>
+	<Folder>
+		<name>ID</name>
+		<open>1</open>
+		<Placemark>
+			<name>Santa Maria</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">1</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-25.09982278548714,36.97133391923763,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sao Miguel</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">7</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-25.48189124401677,37.79540008433901,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Pico</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">8</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-28.33357302279326,38.46947305459695,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Faial</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">10</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-28.70133239145472,38.57821749106076,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sao Jorge</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">11</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-28.02923612389004,38.6372343628156,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Terceira</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">12</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-27.21229999920876,38.72390114678952,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Graciosa</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">13</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-28.01132719601984,39.05229368184819,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Flores</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">15</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-31.20248915106158,39.44195038365628,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Corvo</name>
+			<ExtendedData>
+				<SchemaData schemaUrl="#ID">
+					<SimpleData name="no">17</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-31.10522267765152,39.6991051482552,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
