@@ -2,20 +2,8 @@ Package: rchipelago
 Title: Create Global Maps In Time
 Version: 0.0.0.9000
 Authors@R:
-    c(
-    person(given = "Sietze",
-           family = "Norder",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID")
-           ),
-    person(given = "Richel",
-           family = "Bilderbeek",
-           role = c("aut", "cre"),
-           email = "richel@richelbilderbeek.nl",
-           comment = c(ORCID = "YOUR-ORCID-ID")
-           )
-    )
+    c(person(given = "Sietze", family = "Norder", role = c("aut", "cre"), email = "first.last@example.com", comment = c(ORCID = "YOUR-ORCID-ID")),
+    person(given = "Richel", family = "Bilderbeek", role = c("ctb"), email = "richel@richelbilderbeek.nl", comment = c(ORCID = "YOUR-ORCID-ID")))
 Description: Islands change through time.
     Sometimes, islands become connected.
     With this package, you can get global maps
@@ -24,4 +12,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr

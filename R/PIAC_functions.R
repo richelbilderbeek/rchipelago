@@ -1,49 +1,49 @@
 ###################################################################
 ### ============================================================
-### PIAC Functions  
+### PIAC Functions
 ### ============================================================
 ###################################################################
 
 #   This script contains the functions for preparing the data underlying
 #   the study 'A global spatially explicit database of changes in island paleo-area and
 #   archipelago configuration during the late Quaternary'
-#   by Norder et al. 
+#   by Norder et al.
 #   submitted to Global Ecology and Biogeography
 
 ### ============================================================
 ### IB.areachange.pol
 ### ============================================================
 
-# IB.areachange.pol creates polygon shapefiles per archipelago at each sea level stand from a sea level curve and a bathymetry DEM. It attaches a name to each polygon based on the names provided by the user in a separate KML file. 
-# The function requires the following arguments: 
-# IB.Arcname, the name of the archipelago
-# IB.projname, name of the archipelago bathymetry DEM which was produced in IB.WMcrop.proj.r (without name of archipelago, and without file extention). 
-# IB.proj, coordinate reference system (crs) to which the shapefiles should be projected
-# IB.inputfolder, file path to input folder
-# IB.intermedfolder, file path to intermediate folder
-# IB.outputfolder, file path to output folder
-# time.ka, vector with time periods corresponding to time.sl 
-# time.sl, vector with sea level stands corresponding to time.ka
-
-IB.areachange.pol <-function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder, 
+#' IB.areachange.pol creates polygon shapefiles per archipelago at each sea level stand from a sea level curve and a bathymetry DEM. It attaches a name to each polygon based on the names provided by the user in a separate KML file.
+#' @param IB.Arcname, the name of the archipelago
+#' @param IB.projname, name of the archipelago bathymetry DEM which was produced in IB.WMcrop.proj.r (without name of archipelago, and without file extention).
+#' @param IB.proj, coordinate reference system (crs) to which the shapefiles should be projected
+#' @param IB.inputfolder, file path to input folder
+#' @param IB.intermedfolder, file path to intermediate folder
+#' @param IB.outputfolder, file path to output folder
+#' @param time.ka, vector with time periods corresponding to time.sl
+#' @param time.sl, vector with sea level stands corresponding to time.ka
+#' @author Sietze Norder
+#' @export
+IB.areachange.pol <- function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
                              IB.intermedfolder, IB.outputfolder, time.ka, time.sl){
-  
+
   require(rgdal)
   require(plyr)
   inputarcfolder <- paste(IB.inputfolder, "/", IB.Arcname, "/", sep="")
   outputarcfolder <- paste(IB.outputfolder, "/", IB.Arcname, "/", sep="")
   intermedarcfolder <- paste(IB.intermedfolder, "/", IB.Arcname, "/", sep="")
-  
+
   # import KML of archipelago
   pntkml <- readOGR(dsn=paste(inputarcfolder, IB.Arcname,"_pnt",".kml",sep=""), layer="ID")
   islandpoints <- spTransform(pntkml, CRS=IB.proj)
-  
+
   area.depth <- data.frame(row.names = islandpoints@data$Name)
   area.depth[,"grp"]<-IB.Arcname
   for(x in 1:length(time.ka)){
     area.depth[,paste("ka", time.ka[x], sep="")]<-NA
   }
-  
+
   # Create shapefiles of paleo island extent
   for(i in 1:length(time.sl)){
     ka<-paste("ka", time.ka[i], sep="")
@@ -51,8 +51,8 @@ IB.areachange.pol <-function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
     # loading raster inside loop is faster than loading before the loop and assigning.
     # Load raster
     DEMmask <- raster(x=paste(intermedarcfolder,IB.Arcname,IB.projname,".tif",sep=""))
-    # create picture mask (assign NA) 
-    # assign NA to areas below sea-level (assigning NA reduces computation time).  
+    # create picture mask (assign NA)
+    # assign NA to areas below sea-level (assigning NA reduces computation time).
     DEMmask[DEMmask <= time.sl[i]] <- NA
     DEMmask[DEMmask > time.sl[i]] <- time.ka[i]
     if(suppressWarnings(cellStats(DEMmask,'max')==time.ka[i])){
@@ -70,12 +70,12 @@ IB.areachange.pol <-function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
     if(!identical(name.island,character(0))){
       area.depth[name.island,ka]<-sapply(slot(tmppol[which(!is.na(tmppol@data$iname)),], "polygons"), slot, "area")/1e6
     }
-    
-    ### START of paleo polygons: In case multiple current islands were merged into a paleo island, 
+
+    ### START of paleo polygons: In case multiple current islands were merged into a paleo island,
     ##  the paleo area should be assigned to all islands in area.depth.
     # a data.frame with rows from pnt.kml.sin and corresponding index of polygons in tmppol is returned.
     indexpol<-over(islandpoints,as(tmppol,"SpatialPolygons"))
-    # Check number of occurrences. Only continue if number of paleo islands is larger than 0.  
+    # Check number of occurrences. Only continue if number of paleo islands is larger than 0.
     paleocount<-count(indexpol)
     # Check for each polygon with how many points it overlaps.
     # Return ID's of paleo polygons (Polygons that consist of two or more present-day islands).
@@ -87,7 +87,7 @@ IB.areachange.pol <-function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
         paleopol<-paleopol.id[[p]]
         # Get area of paleo polygon
         paleopol.area <- slot(tmppol@polygons[[paleopol]],"area")/1e6
-        # Get names of points that fall in same paleo polygon. 
+        # Get names of points that fall in same paleo polygon.
         paleopol.names<-islandpoints@data$Name[indexpol==paleopol]
         paleopol.names<-paleopol.names[!is.na(paleopol.names)]
         # Assign area of paleo polygon to area.depth
@@ -106,7 +106,7 @@ IB.areachange.pol <-function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
 ### ============================================================
 
 # IB.datastructure selects island names from KML files per archipelago and stores island names of all archipelagos in a csv file. This is just to provide an overview of which islands are contained in the dataset.
-# The function requires the following arguments: 
+# The function requires the following arguments:
 # IB.inputfolder, file path to input folder
 # IB.Arclist, list with names of archipelagos
 
@@ -129,13 +129,13 @@ IB.datastructure <- function (IB.inputfolder, IB.Arclist){
 ### ============================================================
 
 # IB.projpol projects shapefiles of t=0 to a user-defined projection and saves it as new shapefile:
-# The function requires the following arguments: 
+# The function requires the following arguments:
 # IB.intermedfolder, file path to intermediate folder
 # IB.Arclist, list with names of archipelagos
 # IB.projcrs, crs to which the shapefile should be projected.
 
 IB.projpol <- function (IB.inputfolder, IB.outputfolder, IB.Arclist, IB.projcrs){
-  
+
   for (IB.Arcname in IB.Arclist){
     inputarcfolder <- paste(IB.inputfolder, "/", IB.Arcname, "/", sep="")
     outputarcfolder <- paste(IB.outputfolder, "/", IB.Arcname, "/", sep="")
@@ -151,12 +151,12 @@ IB.projpol <- function (IB.inputfolder, IB.outputfolder, IB.Arclist, IB.projcrs)
 ### IB.WMcrop.proj.r
 ### ============================================================
 
-# IB.WMcrop.proj.r crops the worldmap to an extent which is slightly larger than the bounding box of an archipelago. It also reprojects the resulting raster to a user-defined crs. 
-# The function requires the following arguments: 
+# IB.WMcrop.proj.r crops the worldmap to an extent which is slightly larger than the bounding box of an archipelago. It also reprojects the resulting raster to a user-defined crs.
+# The function requires the following arguments:
 # IB.Arcname, the name of the archipelago
-# IB.projname, name of the archipelago bathymetry DEM to be stored (without name of archipelago, and without file extention). The name provided here should correspond to the name provided in the function IB.areachange.pol 
+# IB.projname, name of the archipelago bathymetry DEM to be stored (without name of archipelago, and without file extention). The name provided here should correspond to the name provided in the function IB.areachange.pol
 # IB.proj, coordinate reference system (crs) to which the raster should be projected
-# IB.WM, file path where global bathymetry DEM is stored locally. 
+# IB.WM, file path where global bathymetry DEM is stored locally.
 # resfact, amount of disaggregation (expressed as number of cells) to create a raster in higher resolution
 # IB.inputfolder, file path to input folder
 # IB.outputfolder, file path to output folder
@@ -164,33 +164,33 @@ IB.projpol <- function (IB.inputfolder, IB.outputfolder, IB.Arclist, IB.projcrs)
 # IB.mask, if TRUE: assign NA to areas below sea-level of -150m MSL (this reduces computation time)
 
 IB.WMcrop.proj.r <- function(IB.Arcname, IB.projname, IB.proj, IB.WM, resfact, IB.inputfolder, IB.outputfolder, IB.plot=TRUE, IB.mask=FALSE){
-  
+
   require(raster)
   require(rgdal)
-  
+
   inputarcfolder<-paste(IB.inputfolder, "/", IB.Arcname, "/",sep="")
   outputarcfolder<-paste(IB.outputfolder, "/", IB.Arcname, "/",sep="")
   # Create outputarcfolder if it doesn't exist yet.
   ifelse(!dir.exists(file.path(outputarcfolder)), dir.create(file.path(outputarcfolder)), FALSE)
-  
+
   # import KML
   pntkml <- readOGR(dsn=paste(inputarcfolder,IB.Arcname,"_pnt",".kml",sep=""), layer="ID")
   pntkml.proj <- spTransform(pntkml, CRS=IB.proj)
-  
+
   # Cut worldmap to the extent of bounding box of islands
-  #Get extent 
+  #Get extent
   e <- extent(pntkml)
   # Define crop extent (`xmin`, `xmax`, `ymin` , `ymax`)
   cropbox <- c(xmin(e)-1,xmax(e)+1,ymin(e)-1,ymax(e)+1)
   #crop the raster
   Distcrop <- crop(IB.WM, cropbox)
   if(IB.mask){
-  # assign NA to areas below sea-level (assigning NA reduces computation time). 
-  # create picture mask (assign NA) 
+  # assign NA to areas below sea-level (assigning NA reduces computation time).
+  # create picture mask (assign NA)
   Distcrop[Distcrop < -150] <- NA
   }
   # Time taken to project and resample Hawaii with NA assigned: 1.528078 mins. If NA is not assigned: 1.765623 mins (quicker than resample and subsequently project, that takes 3.392157 mins)
-  # project 
+  # project
   # start.time <- Sys.time()
   Distcrop.proj<-projectRaster(Distcrop,crs=IB.proj)
   # Resample using bilinear interpolation
@@ -199,7 +199,7 @@ IB.WMcrop.proj.r <- function(IB.Arcname, IB.projname, IB.proj, IB.WM, resfact, I
   # end.time <- Sys.time()
   # time.taken <- end.time - start.time
   # time.taken
-  
+
   # plot
   if(IB.plot){
     plot(Distcrop.proj)
@@ -215,15 +215,15 @@ IB.WMcrop.proj.r <- function(IB.Arcname, IB.projname, IB.proj, IB.WM, resfact, I
 ### IB.areamerge
 ### ============================================================
 
-# IB.areamerge combines the csv files of separate archipelagos into a single file. 
-# The function requires the following arguments: 
+# IB.areamerge combines the csv files of separate archipelagos into a single file.
+# The function requires the following arguments:
 # IB.Arclist, list with names of archipelagos
 # IB.outputfolder, file path to output folder
 
 IB.areamerge <- function(IB.Arclist, IB.outputfolder){
 area.depth <- data.frame("island"=as.character())
 
-for(IB.Arcname in IB.Arclist){ 
+for(IB.Arcname in IB.Arclist){
   tmp.area.depth <- read.csv(file=paste(IB.outputfolder, "/", IB.Arcname, "/", "area_", IB.Arcname,".csv",sep=""))
   colnames(tmp.area.depth)[1]<-"island"
   area.depth<-rbind.fill(area.depth, tmp.area.depth)
@@ -238,22 +238,22 @@ return(area.depth)
 ### ============================================================
 
 # Polygonizer creates a polygon shapefile from a raster layer
-# The function requires the following arguments: 
-# x: an R Raster layer, or the file path to a raster file recognised by GDAL 
-# outshape: the path to the output shapefile (if NULL, a temporary file will 
-#           be created) 
-# pypath: the path to gdal_polygonize.py or OSGeo4W.bat (if NULL, the function 
+# The function requires the following arguments:
+# x: an R Raster layer, or the file path to a raster file recognised by GDAL
+# outshape: the path to the output shapefile (if NULL, a temporary file will
+#           be created)
+# pypath: the path to gdal_polygonize.py or OSGeo4W.bat (if NULL, the function
 #         will attempt to determine the location). OSGeo4W can be downloaded from
 #         https://trac.osgeo.org/osgeo4w/
 # readpoly: should the polygon shapefile be read back into R, and returned by
-#           this function? (logical) 
+#           this function? (logical)
 # fillholes: should holes be deleted (i.e., their area added to the containing
 #            polygon)
 # aggregate: should polygons be aggregated by their associated raster value?
 # quietish: should (some) messages be suppressed? (logical)
 
-polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE, 
-                        fillholes=FALSE, aggregate=FALSE, 
+polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
+                        fillholes=FALSE, aggregate=FALSE,
                         quietish=TRUE) {
   if (isTRUE(readpoly) || isTRUE(fillholes)) require(rgdal)
   if (is.null(pypath)) {
@@ -262,16 +262,16 @@ polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
     if(cmd == "") {
       cmd <- "python"
       pypath <- Sys.which('gdal_polygonize.py')
-      if (!file.exists(pypath)) 
-        stop("Could not find gdal_polygonize.py or OSGeo4W on your system.") 
+      if (!file.exists(pypath))
+        stop("Could not find gdal_polygonize.py or OSGeo4W on your system.")
     }
   }
   if (!is.null(outshape)) {
     outshape <- sub('\\.shp$', '', outshape)
     f.exists <- file.exists(paste(outshape, c('shp', 'shx', 'dbf'), sep='.'))
-    if (any(f.exists)) 
-      stop(sprintf('File already exists: %s', 
-                   toString(paste(outshape, c('shp', 'shx', 'dbf'), 
+    if (any(f.exists))
+      stop(sprintf('File already exists: %s',
+                   toString(paste(outshape, c('shp', 'shx', 'dbf'),
                                   sep='.')[f.exists])), call.=FALSE)
   } else outshape <- tempfile()
   if (is(x, 'Raster')) {
@@ -281,16 +281,16 @@ polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
   } else if (is.character(x)) {
     rastpath <- normalizePath(x)
   } else stop('x must be a file path (character string), or a Raster object.')
-  
+
   system2(cmd, args=(
-    sprintf('"%s" "%s" %s -f "ESRI Shapefile" "%s.shp"', 
+    sprintf('"%s" "%s" %s -f "ESRI Shapefile" "%s.shp"',
             pypath, rastpath, ifelse(quietish, '-q ', ''), outshape)))
-  
+
   if(isTRUE(aggregate)||isTRUE(readpoly)||isTRUE(fillholes)) {
-    shp <- readOGR(dirname(outshape), layer=basename(outshape), 
-                   verbose=!quietish)    
+    shp <- readOGR(dirname(outshape), layer=basename(outshape),
+                   verbose=!quietish)
   } else return(NULL)
-  
+
   if (isTRUE(fillholes)) {
     poly_noholes <- lapply(shp@polygons, function(x) {
       Filter(function(p) p@ringDir==1, x@Polygons)[[1]]
@@ -300,12 +300,12 @@ polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
     }, poly_noholes, row.names(shp)), proj4string=CRS(proj4string(shp)))
     shp <- SpatialPolygonsDataFrame(pp, shp@data)
     if(isTRUE(aggregate)) shp <- aggregate(shp, names(shp))
-    writeOGR(shp, dirname(outshape), basename(outshape), 
+    writeOGR(shp, dirname(outshape), basename(outshape),
              'ESRI Shapefile', overwrite=TRUE)
   }
   if(isTRUE(aggregate) & !isTRUE(fillholes)) {
     shp <- aggregate(shp, names(shp))
-    writeOGR(shp, dirname(outshape), basename(outshape), 
+    writeOGR(shp, dirname(outshape), basename(outshape),
              'ESRI Shapefile', overwrite=TRUE)
   }
   ifelse(isTRUE(readpoly), return(shp), return(NULL))

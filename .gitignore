@@ -37,3 +37,4 @@ rsconnect/
 .Rproj.user
 doc/
 data/
+inst/doc
