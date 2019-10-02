@@ -105,11 +105,11 @@ IB.areachange.pol <- function(IB.Arcname, IB.projname, IB.proj, IB.inputfolder,
 ### IB.datastructure
 ### ============================================================
 
-# IB.datastructure selects island names from KML files per archipelago and stores island names of all archipelagos in a csv file. This is just to provide an overview of which islands are contained in the dataset.
-# The function requires the following arguments:
-# IB.inputfolder, file path to input folder
-# IB.Arclist, list with names of archipelagos
-
+#' IB.datastructure selects island names from KML files per archipelago and stores island names of all archipelagos in a csv file. This is just to provide an overview of which islands are contained in the dataset.
+#' @param IB.inputfolder, file path to input folder
+#' @param IB.Arclist, list with names of archipelagos
+#' @author Sietze Norder
+#' @export
 IB.datastructure <- function (IB.inputfolder, IB.Arclist){
   IB.islandnames <- data.frame(cbind("island"=as.character(), "archipelago"=as.character()))
   for (IB.Arcname in IB.Arclist){
@@ -128,12 +128,12 @@ IB.datastructure <- function (IB.inputfolder, IB.Arclist){
 ### IB.projpol
 ### ============================================================
 
-# IB.projpol projects shapefiles of t=0 to a user-defined projection and saves it as new shapefile:
-# The function requires the following arguments:
-# IB.intermedfolder, file path to intermediate folder
-# IB.Arclist, list with names of archipelagos
-# IB.projcrs, crs to which the shapefile should be projected.
-
+#' IB.projpol projects shapefiles of t=0 to a user-defined projection and saves it as new shapefile:
+#' @param IB.intermedfolder, file path to intermediate folder
+#' @param IB.Arclist, list with names of archipelagos
+#' @param IB.projcrs, crs to which the shapefile should be projected.
+#' @author Sietze Norder
+#' @export
 IB.projpol <- function (IB.inputfolder, IB.outputfolder, IB.Arclist, IB.projcrs){
 
   for (IB.Arcname in IB.Arclist){
@@ -151,18 +151,18 @@ IB.projpol <- function (IB.inputfolder, IB.outputfolder, IB.Arclist, IB.projcrs)
 ### IB.WMcrop.proj.r
 ### ============================================================
 
-# IB.WMcrop.proj.r crops the worldmap to an extent which is slightly larger than the bounding box of an archipelago. It also reprojects the resulting raster to a user-defined crs.
-# The function requires the following arguments:
-# IB.Arcname, the name of the archipelago
-# IB.projname, name of the archipelago bathymetry DEM to be stored (without name of archipelago, and without file extention). The name provided here should correspond to the name provided in the function IB.areachange.pol
-# IB.proj, coordinate reference system (crs) to which the raster should be projected
-# IB.WM, file path where global bathymetry DEM is stored locally.
-# resfact, amount of disaggregation (expressed as number of cells) to create a raster in higher resolution
-# IB.inputfolder, file path to input folder
-# IB.outputfolder, file path to output folder
-# IB.plot, should output be plotted on screen?
-# IB.mask, if TRUE: assign NA to areas below sea-level of -150m MSL (this reduces computation time)
-
+#' IB.WMcrop.proj.r crops the worldmap to an extent which is slightly larger than the bounding box of an archipelago. It also reprojects the resulting raster to a user-defined crs.
+#' @param IB.Arcname, the name of the archipelago
+#' @param IB.projname, name of the archipelago bathymetry DEM to be stored (without name of archipelago, and without file extention). The name provided here should correspond to the name provided in the function IB.areachange.pol
+#' @param IB.proj, coordinate reference system (crs) to which the raster should be projected
+#' @param IB.WM, file path where global bathymetry DEM is stored locally.
+#' @param resfact, amount of disaggregation (expressed as number of cells) to create a raster in higher resolution
+#' @param IB.inputfolder, file path to input folder
+#' @param IB.outputfolder, file path to output folder
+#' @param IB.plot, should output be plotted on screen?
+#' @param IB.mask, if TRUE: assign NA to areas below sea-level of -150m MSL (this reduces computation time)
+#' @author Sietze Norder
+#' @export
 IB.WMcrop.proj.r <- function(IB.Arcname, IB.projname, IB.proj, IB.WM, resfact, IB.inputfolder, IB.outputfolder, IB.plot=TRUE, IB.mask=FALSE){
 
   require(raster)
@@ -215,11 +215,11 @@ IB.WMcrop.proj.r <- function(IB.Arcname, IB.projname, IB.proj, IB.WM, resfact, I
 ### IB.areamerge
 ### ============================================================
 
-# IB.areamerge combines the csv files of separate archipelagos into a single file.
-# The function requires the following arguments:
-# IB.Arclist, list with names of archipelagos
-# IB.outputfolder, file path to output folder
-
+#' IB.areamerge combines the csv files of separate archipelagos into a single file.
+#' @param IB.Arclist, list with names of archipelagos
+#' @param IB.outputfolder, file path to output folder
+#' @author Sietze Norder
+#' @export
 IB.areamerge <- function(IB.Arclist, IB.outputfolder){
 area.depth <- data.frame("island"=as.character())
 
@@ -237,21 +237,21 @@ return(area.depth)
 ### polygonizer
 ### ============================================================
 
-# Polygonizer creates a polygon shapefile from a raster layer
-# The function requires the following arguments:
-# x: an R Raster layer, or the file path to a raster file recognised by GDAL
-# outshape: the path to the output shapefile (if NULL, a temporary file will
-#           be created)
-# pypath: the path to gdal_polygonize.py or OSGeo4W.bat (if NULL, the function
-#         will attempt to determine the location). OSGeo4W can be downloaded from
-#         https://trac.osgeo.org/osgeo4w/
-# readpoly: should the polygon shapefile be read back into R, and returned by
-#           this function? (logical)
-# fillholes: should holes be deleted (i.e., their area added to the containing
-#            polygon)
-# aggregate: should polygons be aggregated by their associated raster value?
-# quietish: should (some) messages be suppressed? (logical)
-
+#' Polygonizer creates a polygon shapefile from a raster layer
+#' @param x: an R Raster layer, or the file path to a raster file recognised by GDAL
+#' @param outshape: the path to the output shapefile (if NULL, a temporary file will
+#'           be created)
+#' @param pypath: the path to gdal_polygonize.py or OSGeo4W.bat (if NULL, the function
+#'         will attempt to determine the location). OSGeo4W can be downloaded from
+#'         https://trac.osgeo.org/osgeo4w/
+#' @param readpoly: should the polygon shapefile be read back into R, and returned by
+#'           this function? (logical)
+#' @param fillholes: should holes be deleted (i.e., their area added to the containing
+#'            polygon)
+#' @param aggregate: should polygons be aggregated by their associated raster value?
+#' @param quietish: should (some) messages be suppressed? (logical)
+#' @author Sietze Norder
+#' @export
 polygonizer <- function(x, outshape=NULL, pypath=NULL, readpoly=TRUE,
                         fillholes=FALSE, aggregate=FALSE,
                         quietish=TRUE) {
